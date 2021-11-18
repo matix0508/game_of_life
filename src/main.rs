@@ -240,11 +240,9 @@ fn position_translation(windows: Res<Windows>, mut q: Query<(&Position, &mut Tra
 }
 
 fn living_neighbours(
-    grid: ResMut<Grid>,
-    row: u32,
-    col: u32
-) -> u8 {
-    let mut output = 0;
+    grid: &ResMut<Grid>
+) ->  [[u8 ; ARENA_WIDTH as usize] ; ARENA_HEIGHT as usize]{
+    let mut output = [[0 ; ARENA_WIDTH as usize] ; ARENA_HEIGHT as usize];
     let mut table = [[0 as u8; ARENA_HEIGHT as usize] ; ARENA_WIDTH as usize];
     for tile in grid.0.iter() {
         let SingleTile{state: s, position: Position {x, y}} = tile;
@@ -255,22 +253,48 @@ fn living_neighbours(
     }
     for i in 0..ARENA_WIDTH {
         for j in 0..ARENA_HEIGHT {
-            if i != 0 && j != 0 && i != ARENA_WIDTH - 1 && j != ARENA_HEIGHT {
-                
+            if i != 0 && j != 0 && i != ARENA_WIDTH - 1 && j != ARENA_HEIGHT - 1 {
+                let x = i as usize;
+                let y = j as usize;
+                output[x][y] = table[x][y+1] + table[x][y-1] + table[x+1][y] + table[x-1][y] + table[x+1][y+1]+table[x+1][y-1] + table[x-1][y-1]+table[x-1][y+1];
             }
         }
     }
-
-    output 
+    return output
 }
 
 fn next_turn(
     run: Res<Run>,
+    mut grid: ResMut<Grid>,
+    commands: Commands,
+    mut indexes: ResMut<Indexes>,
+    materials: Res<Materials>,
+
 
 ) {
     if !run.0 {
         return
     }
+    let neighbours = living_neighbours(&grid);
+    for tile in grid.0.iter_mut() {
+        let Position {x: x, y: y} = tile.position;
+        match tile.state {
+            State::Alive => {
+                tile.state = match neighbours[x as usize][y as usize] {
+                    0 | 1 => State::Dead,
+                    2 | 3 => State::Alive,
+                    3.. => State::Dead,
+
+            }
+        },
+            State::Dead => {
+                if neighbours[x as usize][y as usize] == 3 {
+                    tile.state = State::Alive;
+                }
+            }
+        }
+    }
+    respawn(commands, indexes, materials, grid);
 
     
     println!("Next Turn");

@@ -1,4 +1,5 @@
 # Conway's Game of Life
+A Simple game that simulates life: [link](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
 ## Technology
 - Rust 1.56.1
@@ -10,4 +11,7 @@
 
 ## Run 
 - type `cargo run` to build and run game. If this is the first build it may take some time.
+
+## Documentation
+- https://matix0508.github.io/game_of_life/
 

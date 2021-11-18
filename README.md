@@ -11,6 +11,7 @@ A Simple game that simulates life: [link](https://en.wikipedia.org/wiki/Conway%2
 
 ## Run 
 - type `cargo run` to build and run game. If this is the first build it may take some time.
+- Inside the game you can press SPACE to pause and unpause game.
 
 ## Documentation
 - https://matix0508.github.io/game_of_life/

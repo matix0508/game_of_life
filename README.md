@@ -6,7 +6,7 @@ A Simple game that simulates life: [link](https://en.wikipedia.org/wiki/Conway%2
 - Bevy 0.5.0
 
 ## Setup
-- go to root directory, make sure you have rust installed (if not follow this [link](https://www.rust-lang.org/learn/get-started)). If you are on linux you may have install some additional dependencies manually: [link]()
+- go to root directory, make sure you have rust installed (if not follow this [link](https://www.rust-lang.org/learn/get-started)). If you are on linux you may have install some additional dependencies manually: [link](https://github.com/bevyengine/bevy/blob/main/docs/linux_dependencies.md)
 - type `cargo install` in terminal. Now required dependencies will be installed.
 
 ## Run 

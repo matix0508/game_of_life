@@ -16,4 +16,5 @@ A Simple game that simulates life: [link](https://en.wikipedia.org/wiki/Conway%2
 
 ## Documentation
 - https://matix0508.github.io/game_of_life/
+- https://crates.io/crates/game_of_life_bevy
 

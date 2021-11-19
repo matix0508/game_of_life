@@ -261,7 +261,6 @@ fn change_state(
         let pos = read_coords(abs_position.x, abs_position.y);
         if buttons.just_pressed(MouseButton::Left) {
             let idx = get_index(pos);
-            println!("click here: {}", idx);
             grid.0[idx].change_state();
             respawn(commands, index, materials, grid)
             
@@ -309,9 +308,6 @@ fn next_turn(
         }
     }
     respawn(commands, indexes, materials, grid);
-
-    
-    println!("Next Turn");
 }
 
 
@@ -349,7 +345,6 @@ fn space_hit(
 ) {
     if keyboard_input.pressed(KeyCode::Space) {
         run.0 = !run.0;
-        println!("Space is hit")
     }
     
 }

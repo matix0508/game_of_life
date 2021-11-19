@@ -2,6 +2,15 @@
 name = "game_of_life"
 version = "0.1.0"
 edition = "2021"
+authors = ["Mateusz <matix0508@gmail.com>"]
+rust-version = "1.56.1"
+description = "Implementation of Conway's Game of Life in bevy"
+documentation = "https://matix0508.github.io/game_of_life/"
+repository = "https://github.com/matix0508/game_of_life"
+readme = "README.md"
+licence = "MIT"
+keywords = ["gamedev", "bevy", "game", "life", "conway"]
+exclude = ["/docs", "/target", "index.html"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

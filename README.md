@@ -18,6 +18,9 @@ A Simple game that simulates life: [link](https://en.wikipedia.org/wiki/Conway%2
 - https://matix0508.github.io/game_of_life/
 - https://crates.io/crates/game_of_life_bevy
 
+## Known problems
+- It's extremely easy to hit space twice instead of once. Then nothing happens you have to be extra quick (or code a bugFix)
+
 ## Contributing
 - feel free to reading Issues, fixing bugs and contact me if there's any need
 - email: wleklinskimateusz05@gmail.com
